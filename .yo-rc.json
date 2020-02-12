@@ -1,0 +1,33 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "org.technophilia.sample"
+    },
+    "jhipsterVersion": "5.7.1",
+    "applicationType": "microservice",
+    "baseName": "HelloWorld",
+    "packageName": "org.technophilia.sample",
+    "packageFolder": "org/technophilia/sample",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "no",
+    "devDatabaseType": "no",
+    "prodDatabaseType": "no",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "N2NmNWM0MjRmMzUzOTdiMDMzOTJmZGE3MjM2ZmIzMmU2OGE0NTgxNjc1MTcxZmFhOTg0MTc2Zjk5ZDZlYjc0NWNlODZmZmI5N2MxM2IzZDk4MTI2NDkwYjNhN2UzYjg3MTQxOTJmY2E5NmZmZTg3NGZhZGQ5ZTYyOTZjNTFmZTM=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
