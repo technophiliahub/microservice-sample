@@ -1,0 +1,64 @@
+1.create app using jhipster
+2.added resource class and defined /hello api
+3.added <dockerfile-maven-plugin.version>1.4.4</dockerfile-maven-plugin.version> in top of pom where versions listed
+4.added following plugin in pom 
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>${dockerfile-maven-plugin.version}</version>
+				<executions>
+					<!-- Uncomment the section below to build the docker image with mvn 
+						package and and push it with mvn deploy <execution> <id>default</id> <goals> 
+						<goal>build</goal> <goal>push</goal> </goals> </execution> -->
+					<execution>
+						<id>tag-latest</id>
+						<phase>none</phase>
+						<goals>
+							<goal>build</goal>
+							<goal>tag</goal>
+							<goal>push</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>version</id>
+						<phase>none</phase>
+						<goals>
+							<goal>build</goal>
+							<goal>tag</goal>
+							<goal>push</goal>
+						</goals>
+						<configuration>
+							<tag>${project.version}</tag>
+						</configuration>
+					</execution>
+					<execution>
+						<id>commit</id>
+						<phase>none</phase>
+						<goals>
+							<goal>build</goal>
+							<goal>tag</goal>
+							<goal>push</goal>
+						</goals>
+						<configuration>
+							<tag>${git.commit.id.describe}</tag>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>hello-world</repository>
+					<tag>latest</tag>
+					<contextDirectory>${project.build.directory}</contextDirectory>
+				</configuration>
+			</plugin>
+			
+			
+			
+5.build the project using follwing command
+sudo mvn clean  package -Pdev verify -Dmaven.test.skip=true  jib:dockerBuild
+6.up the docker file using 
+sudo docker-compose -f ./src/main/docker/app.yml up -d
+7.sudo docker container ls 
+8.sudo docker container ls -a
+9. sudo docker exec -ti 9541061ca910 /bin/sh
+10.sudo docker-compose -f src/main/docker/app.yml down
+11.sudo docker container logs -f docker_helloworld-app_1_5339b93caa0b
